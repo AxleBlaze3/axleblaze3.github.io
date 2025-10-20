@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rohan Joseph - Student and Researcher">
+    <meta name="keywords" content="research, computer science, machine learning, student">
+    <title>Rohan Joseph</title>
+    <link rel="icon" type="image/png" href="assets/image.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-name">Rohan Joseph</div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about" class="nav-link active" data-section="about">About</a></li>
+                <li><a href="#publications" class="nav-link" data-section="publications">Publications</a></li>
+                <li><a href="#highlights" class="nav-link" data-section="highlights">Highlights</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon" id="themeIcon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Container with Sidebar -->
+    <main class="main-content">
+        <div class="page-wrapper">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="profile-photo">
+                    <img src="assets/img.jpeg" alt="Rohan Joseph">
+                </div>
+                <div class="sidebar-info">
+                    <p class="job-title">Network Software Engineering Specialist</p>
+                    <p class="company">Telstra</p>
+                    <p class="role">AI Researcher</p>
+                    <p class="email"><a href="mailto:rohan54518@gmail.com">rohan54518@gmail.com</a></p>
+                    <div class="sidebar-links">
+                        <a href="mailto:rohan54518@gmail.com" aria-label="Email" title="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://scholar.google.com/citations?user=MC2tiX4AAAAJ&hl=en&oi=ao" target="_blank" aria-label="Google Scholar" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="https://github.com/AxleBlaze3" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/rohan-joseph-b31187241/" target="_blank" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </aside>
+            
+            <!-- Content Area -->
+            <div class="content-wrapper">
+            <!-- About Section -->
+            <section id="about" class="content-section active">
+                <p>
+                    I am a Network Software Engineering Specialist at Telstra and a research collaborator with Prof. Sunny Rai (University of Pennsylvania). My research experience and interests include natural language processing, multilingual understanding, figurative language, reasoning, social media analysis, and AI agent development. In industry, I design and deploy production-grade backend and frontend systems, and have been recognized at Telstra for initiative, teamwork, and ownership.
+                </p>
+                <p>
+                    I also build AI-powered applications such as NutriPal and AlarmPal, reflecting my interest in multimodal learning, AI agents, and human–AI interaction.
+                </p>
+                <p>
+                    I enjoy tackling AI problems that require deep research insight and have the potential for real-world impact, and I continually explore new directions and collaborations that push my understanding forward.
+                </p>
+                <p>
+                    Previously, I completed my Bachelor's in Computer Science and Engineering at Mahindra University, where I was a research assistant under Prof. Sunny Rai.
+                </p>
+            </section>
+
+            <!-- Publications Section -->
+            <section id="publications" class="content-section">
+                <div class="publication">
+                    <p class="pub-title">Multilingual LLMs Are Not Multilingual Thinkers: Evidence from Hindi Analogy Evaluation</p>
+                    <p class="pub-authors">Ashray Gupta, <strong>Rohan Joseph</strong>, Sunny Rai</p>
+                    <p class="pub-venue"><em>The 2nd Workshop on Analogical Abstraction in Cognition, Perception, and Language, ACL 2025</em></p>
+                    <p class="pub-links">
+                        [<a href="https://aclanthology.org/anthology-files/anthology-files/pdf/analogy-angle/2025.analogyangle-1.pdf#page=63" target="_blank">PDF</a>] 
+                        [<a href="https://arxiv.org/pdf/2507.13238" target="_blank">arXiv</a>] 
+                        [<a href="https://pypi.org/project/hats-analogy-dataset/" target="_blank">Data</a>] 
+                        [<a href="#" class="bibtex-link" data-bibtex="gupta2025">BibTeX</a>]
+                    </p>
+                </div>
+
+                <div class="publication">
+                    <p class="pub-title">NewsMet: A 'do it all' Dataset of Contemporary Metaphors in News Headlines</p>
+                    <p class="pub-authors"><strong>Rohan Joseph</strong>, Timothy Liu, Aik Beng Ng, Simon See, Sunny Rai</p>
+                    <p class="pub-venue"><em>Findings of the Association for Computational Linguistics: ACL 2023</em></p>
+                    <p class="pub-links">
+                        [<a href="https://aclanthology.org/2023.findings-acl.641.pdf" target="_blank">PDF</a>] 
+                        [<a href="https://github.com/AxleBlaze3/NewsMet_Metaphor_Dataset" target="_blank">Data</a>] 
+                        [<a href="#" class="bibtex-link" data-bibtex="joseph2023">BibTeX</a>]
+                    </p>
+                </div>
+
+                <div class="publication">
+                    <p class="pub-title">Identifying Human Needs through Social Media: A Study on Indian Cities during COVID-19</p>
+                    <p class="pub-authors">Sunny Rai, <strong>Rohan Joseph</strong>, Prakruti Singh Thakur, Mohammed Abdul Khaliq</p>
+                    <p class="pub-venue"><em>Proceedings of the Tenth International Workshop on Natural Language Processing for Social Media, NAACL 2022</em></p>
+                    <p class="pub-links">
+                        [<a href="https://aclanthology.org/2022.socialnlp-1.6.pdf" target="_blank">PDF</a>] 
+                        [<a href="https://github.com/AxleBlaze3/Covid_19_Tweets_with_Tagged_Needs" target="_blank">Data</a>] 
+                        [<a href="#" class="bibtex-link" data-bibtex="rai2022">BibTeX</a>]
+                    </p>
+                </div>
+
+                <div class="publication">
+                    <p class="pub-title">#covid is war and #vaccine is weapon? COVID-19 metaphors in India</p>
+                    <p class="pub-authors">Mohammed Khaliq, <strong>Rohan Joseph</strong>, Sunny Rai</p>
+                    <p class="pub-venue"><em>Proceedings of the 18th International Conference on Natural Language Processing (ICON)</em>, 2021</p>
+                    <p class="pub-links">
+                        [<a href="https://aclanthology.org/2021.icon-main.52.pdf" target="_blank">PDF</a>] 
+                        [<a href="#" class="bibtex-link" data-bibtex="khaliq2021">BibTeX</a>]
+                    </p>
+                </div>
+            </section>
+
+            <!-- BibTeX Modal -->
+            <div id="bibtexModal" class="modal">
+                <div class="modal-content">
+                    <span class="modal-close">&times;</span>
+                    <h3>BibTeX Citation</h3>
+                    <pre id="bibtexCode" class="bibtex-code"></pre>
+                    <button class="copy-button" id="copyBibtex">Copy to Clipboard</button>
+                </div>
+            </div>
+
+            <!-- Video Modal -->
+            <div id="videoModal" class="modal">
+                <div class="modal-content video-modal-content">
+                    <span class="modal-close video-modal-close">&times;</span>
+                    <div class="video-container">
+                        <iframe id="videoPlayer" width="100%" height="100%" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Highlights Section (Projects + Certificates) -->
+            <section id="highlights" class="content-section">
+                <!-- Projects Subsection -->
+                <h3 class="subsection-title">Ongoing Projects</h3>
+                
+                <div class="project-item">
+                    <p class="project-title">AlarmPal</p>
+                    <p class="project-meta">Kotlin, Jetpack Compose, Google Assistant, Gemini AI • 2025</p>
+                    <p>
+                        A smart Android alarm clock built with Kotlin and Jetpack Compose, featuring integration with 
+                        Google Gemini for voice-controlled alarm creation. It includes AI-powered wake-up 
+                        assistance that delivers personalized weather or calendar updates via text-to-speech, along with 
+                        smart challenges (math puzzles, QR scanning, shake detection, memory games) to ensure you actually 
+                        get up. The app also includes a built-in Pomodoro timer and fully customizable themes for a 
+                        personalized user experience.
+                    </p>
+                    <p class="project-status">
+                        <em>Current Status: In Build</em>
+                    </p>
+                    <p class="project-links">[<a href="#" class="video-link" data-video="BMXrUP_m0wQ">Demo</a>]</p>
+                </div>
+
+                <div class="project-item">
+                    <p class="project-title">NutriPal</p>
+                    <p class="project-meta">React Native, Expo, FastAPI, Google Gemini Vision AI • 2025</p>
+                    <p>
+                        A modern AI-powered mobile nutrition tracking app that automatically analyzes food images and provides 
+                        relatively accurate calorie and macronutrient breakdowns. The frontend is built with React Native and 
+                        Expo for a seamless cross-platform experience, while the backend uses FastAPI and Google's Gemini Vision 
+                        AI with multiple specialized agents to identify ingredients, calculate calories, and deliver personalized 
+                        nutritional insights.
+                    </p>
+                    <p class="project-status">
+                        <em>Built with a friend. Current Status: In Play Store alpha track, being used for free by family and friends. 
+                        No immediate plans to make it public.</em>
+                    </p>
+                    <p class="project-links">[<a href="#" class="video-link" data-video="8T3wmQMe4y4">Demo</a>]</p>
+                </div>
+
+                <!-- Certificates Subsection -->
+                <h3 class="subsection-title">Certificates & Awards</h3>
+                
+                <div class="certificate-item">
+                    <p class="cert-title">Award for exceptional performance</p>
+                    <p class="cert-issuer">Telstra • 2025</p>
+                    <p class="cert-links">[<a href="assets/tels_aw1.jpg" target="_blank">Recognition</a>] [<a href="assets/telsaw2.jpeg" target="_blank">Certificate</a>]</p>
+                </div>
+
+                <div class="certificate-item">
+                    <p class="cert-title">Security Champion Advanced | Developer</p>
+                    <p class="cert-issuer">Telstra • 2025</p>
+                    <p class="cert-links">[<a href="assets/ATT28671 (002).pdf" target="_blank">Certificate</a>]</p>
+                </div>
+
+                <div class="certificate-item">
+                    <p class="cert-title">Infrastructure as Code</p>
+                    <p class="cert-issuer">LinkedIn Learning • 2025</p>
+                    <p class="cert-links">[<a href="assets/CertificateOfCompletion_DevOps Foundations Infrastructure as Code 2017.pdf" target="_blank">Certificate</a>]</p>
+                </div>
+
+                <div class="certificate-item">
+                    <p class="cert-title">Building an Application Security Program</p>
+                    <p class="cert-issuer">LinkedIn Learning • 2025</p>
+                    <p class="cert-links">[<a href="assets/CertificateOfCompletion_Building an Application Security Program (1).pdf" target="_blank">Certificate</a>]</p>
+                </div>
+
+                <div class="certificate-item">
+                    <p class="cert-title">Learning HashiCorp Vault</p>
+                    <p class="cert-issuer">LinkedIn Learning • 2025</p>
+                    <p class="cert-links">[<a href="assets/CertificateOfCompletion_Learning HashiCorp Vault.pdf" target="_blank">Certificate</a>]</p>
+                </div>
+
+                <div class="certificate-item">
+                    <p class="cert-title">Travel Grant for Research Contributions</p>
+                    <p class="cert-issuer">Mahindra University • 2022</p>
+                    <p class="cert-links">[<a href="assets/Note to Rohan Joseph-1.pdf" target="_blank">Approval</a>]</p>
+                </div>
+            </section>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
