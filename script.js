@@ -181,6 +181,37 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ===========================
+// Internal Section Deep Links
+// ===========================
+document.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a[data-section-target]');
+    if (!anchor) return;
+    e.preventDefault();
+
+    const sectionId = anchor.getAttribute('data-section-target');
+    const scrollId = anchor.getAttribute('data-scroll-id');
+
+    showSection(sectionId);
+
+    // After section is visible, scroll to target with offset for fixed navbar
+    requestAnimationFrame(() => {
+        const navbarEl = document.getElementById('navbar');
+        const navHeight = navbarEl ? navbarEl.offsetHeight : 0;
+        const offset = navHeight + 12; // small padding
+
+        if (scrollId) {
+            const el = document.getElementById(scrollId);
+            if (el) {
+                const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+                return;
+            }
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+});
+
+// ===========================
 // Page Load Animation
 // ===========================
 window.addEventListener('load', () => {
