@@ -910,6 +910,192 @@ em {
 }
 
 /* ===========================
+   Agent Steps Collapsible Carousel
+   =========================== */
+.agent-steps-container {
+    margin-top: 1rem;
+}
+
+.agent-steps-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-family: var(--sans-font);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.agent-steps-toggle:hover {
+    color: var(--link-color);
+    border-color: var(--link-color);
+}
+
+.agent-steps-toggle .toggle-icon {
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+.agent-steps-toggle[aria-expanded="true"] .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.agent-steps-toggle[aria-expanded="true"] .toggle-text::before {
+    content: "Hide ";
+}
+
+.agent-steps-toggle[aria-expanded="true"] .toggle-text {
+    font-size: 0;
+}
+
+.agent-steps-toggle[aria-expanded="true"] .toggle-text::before {
+    font-size: 0.9rem;
+}
+
+.agent-steps-carousel {
+    display: none;
+    margin-top: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: var(--bg-secondary);
+    animation: slideDown 0.3s ease;
+}
+
+.agent-steps-carousel.active {
+    display: block;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.carousel-slide {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    overflow: hidden;
+}
+
+.carousel-image {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .carousel-image {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-btn {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    background-color: var(--bg-primary);
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.carousel-btn:hover {
+    color: var(--link-color);
+    border-color: var(--link-color);
+    background-color: var(--bg-secondary);
+}
+
+.carousel-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.carousel-btn:disabled:hover {
+    color: var(--text-secondary);
+    border-color: var(--border-color);
+    background-color: var(--bg-primary);
+}
+
+.carousel-indicators {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.carousel-step-text {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.carousel-dots {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.carousel-dot:hover {
+    background-color: var(--text-light);
+}
+
+.carousel-dot.active {
+    background-color: var(--link-color);
+    transform: scale(1.2);
+}
+
+@media (max-width: 480px) {
+    .carousel-btn {
+        width: 30px;
+        height: 30px;
+    }
+
+    .carousel-image {
+        max-height: 250px;
+    }
+
+    .carousel-dot {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+/* ===========================
    Utility Classes
    =========================== */
 .text-center {

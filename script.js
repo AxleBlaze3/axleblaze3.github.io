@@ -400,6 +400,105 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ===========================
+// Agent Steps Carousel
+// ===========================
+const agentStepsToggle = document.querySelector('.agent-steps-toggle');
+const agentStepsCarousel = document.getElementById('agentStepsCarousel');
+
+if (agentStepsToggle && agentStepsCarousel) {
+    const totalSteps = 13;
+    let currentStep = 1;
+
+    const carouselImage = agentStepsCarousel.querySelector('.carousel-image');
+    const prevBtn = agentStepsCarousel.querySelector('.carousel-prev');
+    const nextBtn = agentStepsCarousel.querySelector('.carousel-next');
+    const currentStepText = agentStepsCarousel.querySelector('.current-step');
+    const dotsContainer = agentStepsCarousel.querySelector('.carousel-dots');
+
+    // Generate dots
+    for (let i = 1; i <= totalSteps; i++) {
+        const dot = document.createElement('span');
+        dot.className = 'carousel-dot' + (i === 1 ? ' active' : '');
+        dot.setAttribute('data-step', i);
+        dot.setAttribute('aria-label', `Go to step ${i}`);
+        dotsContainer.appendChild(dot);
+    }
+
+    const dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+    function updateCarousel() {
+        const stepNum = String(currentStep).padStart(4, '0');
+        carouselImage.src = `assets/20260204-202703/step-${stepNum}.jpg`;
+        carouselImage.alt = `Agent Step ${currentStep}`;
+        currentStepText.textContent = currentStep;
+
+        // Update dots
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index + 1 === currentStep);
+        });
+
+        // Update button states
+        prevBtn.disabled = currentStep === 1;
+        nextBtn.disabled = currentStep === totalSteps;
+    }
+
+    // Toggle collapse/expand
+    agentStepsToggle.addEventListener('click', () => {
+        const isExpanded = agentStepsToggle.getAttribute('aria-expanded') === 'true';
+        agentStepsToggle.setAttribute('aria-expanded', !isExpanded);
+        agentStepsCarousel.classList.toggle('active', !isExpanded);
+
+        if (!isExpanded) {
+            agentStepsToggle.querySelector('.toggle-text').textContent = 'Hide Screenshots';
+        } else {
+            agentStepsToggle.querySelector('.toggle-text').textContent = 'Annotated UI Screenshots';
+        }
+    });
+
+    // Previous button
+    prevBtn.addEventListener('click', () => {
+        if (currentStep > 1) {
+            currentStep--;
+            updateCarousel();
+        }
+    });
+
+    // Next button
+    nextBtn.addEventListener('click', () => {
+        if (currentStep < totalSteps) {
+            currentStep++;
+            updateCarousel();
+        }
+    });
+
+    // Dot navigation
+    dotsContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('carousel-dot')) {
+            currentStep = parseInt(e.target.getAttribute('data-step'));
+            updateCarousel();
+        }
+    });
+
+    // Keyboard navigation when carousel is visible
+    document.addEventListener('keydown', (e) => {
+        if (!agentStepsCarousel.classList.contains('active')) return;
+
+        // Check if carousel is in viewport
+        const rect = agentStepsCarousel.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        if (!isVisible) return;
+
+        if (e.key === 'ArrowLeft' && currentStep > 1) {
+            currentStep--;
+            updateCarousel();
+        } else if (e.key === 'ArrowRight' && currentStep < totalSteps) {
+            currentStep++;
+            updateCarousel();
+        }
+    });
+}
+
+// ===========================
 // Console Message
 // ===========================
 console.log('%cRohan\'s Portfolio', 'font-size: 16px; font-weight: bold; color: #0066cc;');

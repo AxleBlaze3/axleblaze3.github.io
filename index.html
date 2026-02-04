@@ -145,7 +145,45 @@
             <section id="highlights" class="content-section">
                 <!-- Projects Subsection -->
                 <h3 class="subsection-title">Ongoing Projects</h3>
-                
+
+                <div class="project-item" id="project-localagent">
+                    <p class="project-title">Local Agent - Autonomous Computer & Browser Control</p>
+                    <p class="project-meta">Node.js, Python, OpenCV, Gemini 2.5 Flash, TypeScript • 2026</p>
+                    <p>
+                        An AI agent that controls your Windows PC to complete multi-step tasks from natural language
+                        instructions. It uses Gemini 2.5 Flash to interpret screenshots annotated with Set-of-Mark UI
+                        overlays, then executes clicks, typing, and shortcuts in an observe-decide-act loop. Built with
+                        a custom OpenCV UI-detection pipeline and a Node.js orchestrator with loop detection, replanning,
+                        and session management.
+                    </p>
+                    <p class="project-links">[<a href="#" class="video-link" data-video="ymRiJBSXJis">Demo</a>] [<a href="assets/actions.jsonl" target="_blank" rel="noopener noreferrer">Agent Steps JSON</a>]</p>
+
+                    <!-- Collapsible Agent Steps Carousel -->
+                    <div class="agent-steps-container">
+                        <button class="agent-steps-toggle" aria-expanded="false" aria-controls="agentStepsCarousel">
+                            <span class="toggle-text">Annotated UI Screenshots</span>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </button>
+                        <div class="agent-steps-carousel" id="agentStepsCarousel">
+                            <div class="carousel-wrapper">
+                                <button class="carousel-btn carousel-prev" aria-label="Previous step">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <div class="carousel-slide">
+                                    <img src="assets/20260204-202703/step-0001.jpg" alt="Agent Step 1" class="carousel-image">
+                                </div>
+                                <button class="carousel-btn carousel-next" aria-label="Next step">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                            <div class="carousel-indicators">
+                                <span class="carousel-step-text">Step <span class="current-step">1</span> of 13</span>
+                                <div class="carousel-dots"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="project-item" id="project-alarmpal">
                     <p class="project-title">AlarmPal</p>
                     <p class="project-meta">Kotlin, Jetpack Compose, Google Assistant, Gemini AI • 2025</p>
@@ -158,7 +196,7 @@
                         personalized user experience.
                     </p>
                     <p class="project-status">
-                        <em>Current Status: In Build</em>
+                        <em>Current Status: Available on Android (Play Store Alpha track) for private testing with a limited user group.</em>
                     </p>
                     <p class="project-links">[<a href="#" class="video-link" data-video="ntgN3NWEeIo">Demo</a>] [<a href="assets/alarm_pal.PNG" target="_blank" rel="noopener noreferrer">Play Console Release</a>]</p>
                 </div>
