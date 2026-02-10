@@ -912,16 +912,13 @@ em {
 /* ===========================
    Agent Steps Collapsible Carousel
    =========================== */
-.agent-links-row .example-select {
-    vertical-align: middle;
-    margin-right: 0.25rem;
-}
-
 .agent-steps-container {
     margin-top: 0.5rem;
 }
 
 .example-select {
+    display: block;
+    margin-top: 0.5rem;
     padding: 0.3rem 0.5rem;
     border: 1px solid var(--border-color);
     border-radius: 4px;
