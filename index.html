@@ -156,28 +156,29 @@
                         a custom OpenCV UI-detection pipeline and a Node.js orchestrator with loop detection, replanning,
                         and session management.
                     </p>
-                    <p class="project-links">[<a href="#" class="video-link" data-video="ymRiJBSXJis">Demo</a>] [<a href="assets/actions.jsonl" target="_blank" rel="noopener noreferrer">Agent Steps JSON</a>]</p>
+                    <!-- Execution Example Selector + Links -->
+                    <p class="project-links agent-links-row">
+                        <select class="example-select" id="exampleSelect"></select>
+                        [<a href="#" class="video-link" id="agentDemoLink" data-video="ymRiJBSXJis">Demo</a>]
+                        [<a href="assets/actions.jsonl" target="_blank" rel="noopener noreferrer" id="agentStepsJsonLink">Agent Steps JSON</a>]
+                        [<a href="#" class="agent-steps-toggle-link" aria-expanded="false" aria-controls="agentStepsCarousel"><span class="toggle-text">Annotated UI Screenshots</span></a>]
+                    </p>
 
-                    <!-- Collapsible Agent Steps Carousel -->
                     <div class="agent-steps-container">
-                        <button class="agent-steps-toggle" aria-expanded="false" aria-controls="agentStepsCarousel">
-                            <span class="toggle-text">Annotated UI Screenshots</span>
-                            <i class="fas fa-chevron-down toggle-icon"></i>
-                        </button>
                         <div class="agent-steps-carousel" id="agentStepsCarousel">
                             <div class="carousel-wrapper">
                                 <button class="carousel-btn carousel-prev" aria-label="Previous step">
                                     <i class="fas fa-chevron-left"></i>
                                 </button>
                                 <div class="carousel-slide">
-                                    <img src="assets/20260204-202703/step-0001.jpg" alt="Agent Step 1" class="carousel-image">
+                                    <img src="" alt="Agent Step 1" class="carousel-image">
                                 </div>
                                 <button class="carousel-btn carousel-next" aria-label="Next step">
                                     <i class="fas fa-chevron-right"></i>
                                 </button>
                             </div>
                             <div class="carousel-indicators">
-                                <span class="carousel-step-text">Step <span class="current-step">1</span> of 13</span>
+                                <span class="carousel-step-text">Step <span class="current-step">1</span> of <span class="total-steps"></span></span>
                                 <div class="carousel-dots"></div>
                             </div>
                         </div>

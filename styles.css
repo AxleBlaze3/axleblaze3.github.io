@@ -912,48 +912,53 @@ em {
 /* ===========================
    Agent Steps Collapsible Carousel
    =========================== */
-.agent-steps-container {
-    margin-top: 1rem;
+.agent-links-row .example-select {
+    vertical-align: middle;
+    margin-right: 0.25rem;
 }
 
-.agent-steps-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: none;
+.agent-steps-container {
+    margin-top: 0.5rem;
+}
+
+.example-select {
+    padding: 0.3rem 0.5rem;
     border: 1px solid var(--border-color);
     border-radius: 4px;
-    padding: 0.5rem 1rem;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
     font-family: var(--sans-font);
-    font-size: 0.9rem;
-    color: var(--text-secondary);
+    font-size: 0.85rem;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: border-color 0.2s ease;
 }
 
-.agent-steps-toggle:hover {
-    color: var(--link-color);
+.example-select:hover,
+.example-select:focus {
     border-color: var(--link-color);
+    outline: none;
 }
 
-.agent-steps-toggle .toggle-icon {
-    font-size: 0.75rem;
-    transition: transform 0.3s ease;
+.carousel-fade {
+    opacity: 0;
+    transition: opacity 0.2s ease;
 }
 
-.agent-steps-toggle[aria-expanded="true"] .toggle-icon {
-    transform: rotate(180deg);
+.carousel-fade-in {
+    opacity: 1;
+    transition: opacity 0.2s ease;
 }
 
-.agent-steps-toggle[aria-expanded="true"] .toggle-text::before {
-    content: "Hide ";
+.agent-steps-toggle-link {
+    cursor: pointer;
 }
 
-.agent-steps-toggle[aria-expanded="true"] .toggle-text {
+.agent-steps-toggle-link[aria-expanded="true"] .toggle-text {
     font-size: 0;
 }
 
-.agent-steps-toggle[aria-expanded="true"] .toggle-text::before {
+.agent-steps-toggle-link[aria-expanded="true"] .toggle-text::before {
+    content: "Hide Screenshots";
     font-size: 0.9rem;
 }
 

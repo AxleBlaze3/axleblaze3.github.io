@@ -400,59 +400,117 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ===========================
-// Agent Steps Carousel
+// Agent Steps Carousel (Data-Driven)
 // ===========================
-const agentStepsToggle = document.querySelector('.agent-steps-toggle');
-const agentStepsCarousel = document.getElementById('agentStepsCarousel');
+const agentExamples = [
+    {
+        label: 'Example: Download & install an app',
+        videoId: 'ymRiJBSXJis',
+        stepsJson: 'assets/actions.jsonl',
+        imageDir: 'assets/20260204-202703',
+        totalSteps: 13,
+    },
+    {
+        label: 'Example: Dragging & text selection',
+        videoId: 'wqTJT5kPaTk',
+        stepsJson: 'assets/actions2.jsonl',
+        imageDir: 'assets/20260210-191742',
+        totalSteps: 4,
+    },
+];
 
-if (agentStepsToggle && agentStepsCarousel) {
-    const totalSteps = 13;
+const agentStepsToggle = document.querySelector('.agent-steps-toggle-link');
+const agentStepsCarousel = document.getElementById('agentStepsCarousel');
+const exampleSelect = document.getElementById('exampleSelect');
+
+if (agentStepsToggle && agentStepsCarousel && exampleSelect) {
+    let activeExampleIndex = 0;
     let currentStep = 1;
 
     const carouselImage = agentStepsCarousel.querySelector('.carousel-image');
     const prevBtn = agentStepsCarousel.querySelector('.carousel-prev');
     const nextBtn = agentStepsCarousel.querySelector('.carousel-next');
     const currentStepText = agentStepsCarousel.querySelector('.current-step');
+    const totalStepsText = agentStepsCarousel.querySelector('.total-steps');
     const dotsContainer = agentStepsCarousel.querySelector('.carousel-dots');
+    const demoLink = document.getElementById('agentDemoLink');
+    const stepsJsonLink = document.getElementById('agentStepsJsonLink');
 
-    // Generate dots
-    for (let i = 1; i <= totalSteps; i++) {
-        const dot = document.createElement('span');
-        dot.className = 'carousel-dot' + (i === 1 ? ' active' : '');
-        dot.setAttribute('data-step', i);
-        dot.setAttribute('aria-label', `Go to step ${i}`);
-        dotsContainer.appendChild(dot);
+    // Build dropdown options
+    agentExamples.forEach((example, index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        option.textContent = example.label;
+        exampleSelect.appendChild(option);
+    });
+
+    function buildDots() {
+        dotsContainer.innerHTML = '';
+        const total = agentExamples[activeExampleIndex].totalSteps;
+        for (let i = 1; i <= total; i++) {
+            const dot = document.createElement('span');
+            dot.className = 'carousel-dot' + (i === 1 ? ' active' : '');
+            dot.setAttribute('data-step', i);
+            dot.setAttribute('aria-label', `Go to step ${i}`);
+            dotsContainer.appendChild(dot);
+        }
     }
 
-    const dots = dotsContainer.querySelectorAll('.carousel-dot');
-
     function updateCarousel() {
+        const example = agentExamples[activeExampleIndex];
         const stepNum = String(currentStep).padStart(4, '0');
-        carouselImage.src = `assets/20260204-202703/step-${stepNum}.jpg`;
+        carouselImage.src = `${example.imageDir}/step-${stepNum}.jpg`;
         carouselImage.alt = `Agent Step ${currentStep}`;
         currentStepText.textContent = currentStep;
+        totalStepsText.textContent = example.totalSteps;
 
         // Update dots
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
         dots.forEach((dot, index) => {
             dot.classList.toggle('active', index + 1 === currentStep);
         });
 
         // Update button states
         prevBtn.disabled = currentStep === 1;
-        nextBtn.disabled = currentStep === totalSteps;
+        nextBtn.disabled = currentStep === example.totalSteps;
     }
 
+    function switchExample(index) {
+        if (index === activeExampleIndex) return;
+        activeExampleIndex = index;
+        currentStep = 1;
+        const example = agentExamples[index];
+
+        // Update demo & JSON links
+        demoLink.setAttribute('data-video', example.videoId);
+        stepsJsonLink.setAttribute('href', example.stepsJson);
+
+        // Fade out, swap content, fade in
+        agentStepsCarousel.classList.add('carousel-fade');
+        agentStepsCarousel.classList.remove('carousel-fade-in');
+        setTimeout(() => {
+            buildDots();
+            updateCarousel();
+            agentStepsCarousel.classList.remove('carousel-fade');
+            agentStepsCarousel.classList.add('carousel-fade-in');
+        }, 200);
+    }
+
+    // Dropdown change handler
+    exampleSelect.addEventListener('change', () => {
+        switchExample(parseInt(exampleSelect.value));
+    });
+
+    // Initialize first example
+    buildDots();
+    updateCarousel();
+
     // Toggle collapse/expand
-    agentStepsToggle.addEventListener('click', () => {
+    agentStepsToggle.addEventListener('click', (e) => {
+        e.preventDefault();
         const isExpanded = agentStepsToggle.getAttribute('aria-expanded') === 'true';
         agentStepsToggle.setAttribute('aria-expanded', !isExpanded);
         agentStepsCarousel.classList.toggle('active', !isExpanded);
-
-        if (!isExpanded) {
-            agentStepsToggle.querySelector('.toggle-text').textContent = 'Hide Screenshots';
-        } else {
-            agentStepsToggle.querySelector('.toggle-text').textContent = 'Annotated UI Screenshots';
-        }
     });
 
     // Previous button
@@ -465,7 +523,7 @@ if (agentStepsToggle && agentStepsCarousel) {
 
     // Next button
     nextBtn.addEventListener('click', () => {
-        if (currentStep < totalSteps) {
+        if (currentStep < agentExamples[activeExampleIndex].totalSteps) {
             currentStep++;
             updateCarousel();
         }
@@ -483,15 +541,15 @@ if (agentStepsToggle && agentStepsCarousel) {
     document.addEventListener('keydown', (e) => {
         if (!agentStepsCarousel.classList.contains('active')) return;
 
-        // Check if carousel is in viewport
         const rect = agentStepsCarousel.getBoundingClientRect();
         const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
         if (!isVisible) return;
 
+        const total = agentExamples[activeExampleIndex].totalSteps;
         if (e.key === 'ArrowLeft' && currentStep > 1) {
             currentStep--;
             updateCarousel();
-        } else if (e.key === 'ArrowRight' && currentStep < totalSteps) {
+        } else if (e.key === 'ArrowRight' && currentStep < total) {
             currentStep++;
             updateCarousel();
         }
